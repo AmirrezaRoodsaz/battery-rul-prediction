@@ -83,6 +83,8 @@ def test_cycle_life_in_physical_range():
 @requires_data
 def test_qdlin_shapes_consistent():
     qd = np.load(PROCESSED_DIR / "qdlin.npz")
-    sample = qd[qd.files[0]]
+    cell_keys = [k for k in qd.files if not k.startswith("_")]
+    sample = qd[cell_keys[0]]
     assert sample.shape[1] == 1000  # fixed voltage grid
     assert sample.shape[0] <= 100  # only early cycles retained
+    assert qd["_vdlin"].shape == (1000,)  # shared voltage axis stored once

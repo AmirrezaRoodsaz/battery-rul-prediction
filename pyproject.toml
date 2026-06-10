@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "battery-rul-prediction"
 version = "0.1.0"
@@ -6,6 +10,10 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "Amirreza Roodsaz" }]
+
+# Install with `pip install -e .` so `import src` works in notebooks and scripts alike.
+[tool.setuptools]
+packages = ["src", "src.data", "src.features", "src.models", "src.visualization"]
 
 [tool.black]
 line-length = 100

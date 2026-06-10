@@ -26,7 +26,7 @@ import numpy as np
 import pandas as pd
 
 from src.config import PROCESSED_DIR, RAW_DIR, ensure_dirs
-from src.data.load import Cell, parse_batch
+from src.data.load import Cell, parse_batch, read_vdlin
 
 RAW_FILES = {
     1: "2017-05-12_batchdata_updated_struct_errorcorrect.mat",
@@ -128,8 +128,10 @@ def build_processed() -> None:
     summary_df = pd.concat(summary_frames, ignore_index=True)
     summary_df["cycle"] = summary_df["cycle"].astype(int)
 
-    # --- qdlin.npz (per-cell tensor of early-cycle Q(V) curves) ---
+    # --- qdlin.npz (per-cell tensor of early-cycle Q(V) curves + shared voltage grid) ---
     qdlin_arrays = {cid: c.qdlin.astype(np.float32) for cid, c in merged.items()}
+    # The Vdlin voltage grid is shared across all cells; store once under a reserved key.
+    qdlin_arrays["_vdlin"] = read_vdlin(RAW_DIR / RAW_FILES[1]).astype(np.float32)
 
     cells_path = PROCESSED_DIR / "cells.parquet"
     summary_path = PROCESSED_DIR / "summary.parquet"

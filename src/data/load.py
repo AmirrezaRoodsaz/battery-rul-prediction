@@ -119,3 +119,18 @@ def parse_batch(mat_path: str | Path, batch: int, max_qdlin_cycle: int = 100) ->
             )
 
     return cells
+
+
+def read_vdlin(mat_path: str | Path) -> np.ndarray:
+    """Return the fixed 1000-point voltage grid (``Vdlin``) the Qdlin curves are sampled on.
+
+    It is identical for every cell/cycle, so we read it once to give ΔQ(V) plots a physical
+    voltage x-axis instead of a bare index.
+    """
+    with h5py.File(Path(mat_path), "r") as f:
+        # batch['Vdlin'] is an (n_cells, 1) array of references to the (identical) grid;
+        # dereference the first one.
+        v = _deref_vector(f, f["batch"]["Vdlin"][0, 0])
+    if v.size != QDLIN_LEN:
+        raise ValueError(f"Vdlin grid in {mat_path} has length {v.size}, expected {QDLIN_LEN}")
+    return v

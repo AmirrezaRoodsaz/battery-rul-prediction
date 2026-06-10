@@ -18,9 +18,10 @@ help:  ## Show this help
 venv:  ## Create the Python 3.11 virtual environment
 	$(PYTHON) -m venv $(VENV)
 
-install: venv  ## Install pinned dependencies into the venv
+install: venv  ## Install pinned dependencies + the project (editable) into the venv
 	$(PY) -m pip install --upgrade pip
 	$(PY) -m pip install -r requirements.txt
+	$(PY) -m pip install -e .  # makes `import src` work in notebooks and scripts
 
 download:  ## Download raw Severson data into data/raw/ (gitignored)
 	$(PY) -m src.data.download
