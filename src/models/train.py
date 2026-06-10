@@ -27,8 +27,9 @@ from src.features.build_features import FEATURE_SETS, build_feature_table
 from src.models.metrics import predictions_to_cycles, regression_metrics
 from src.models.models import get_model
 
-# Models trained by `make train`. Grows as we escalate from the linear baseline to ensembles.
-DEFAULT_MODELS = ["elasticnet"]
+# Models trained by `make train`, in escalation order: the honest linear floor first, then
+# tree ensembles. Lasso is omitted (ElasticNet generalizes it); XGBoost requires libomp.
+DEFAULT_MODELS = ["elasticnet", "random_forest", "gradient_boosting", "xgboost"]
 CV_FOLDS = 5
 SPLITS = ("train", "test", "secondary_test")
 
