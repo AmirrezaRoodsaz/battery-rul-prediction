@@ -1,0 +1,41 @@
+# --- Data: never commit raw or processed datasets (regenerable, large, license-bound) ---
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# --- Trained model artifacts (regenerable). Small .joblib may be force-added if desired. ---
+models/*
+!models/.gitkeep
+
+# --- Generated figures stay tracked for the README; uncomment to ignore instead ---
+# reports/figures/*
+# !reports/figures/.gitkeep
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+
+# --- Notebooks ---
+.ipynb_checkpoints/
+
+# --- Tooling caches ---
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# --- OS / editor ---
+.DS_Store
+.vscode/
+.idea/
