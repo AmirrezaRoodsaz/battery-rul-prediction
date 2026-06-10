@@ -105,3 +105,10 @@ repository and the BatteryML project.
 ## License
 
 [MIT](LICENSE) © 2026 Amirreza Roodsaz
+
+---
+
+> _A personal note: I built this out of curiosity and a wish to learn something new — not for any
+> company or university. I had a problem in mind that genuinely interested me, and I wanted to solve
+> it while picking up new skills along the way. It is by no means complete or fully professional;
+> it's an honest learning project, and I'm sharing it in that spirit._
