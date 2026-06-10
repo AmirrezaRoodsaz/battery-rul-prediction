@@ -42,3 +42,6 @@ htmlcov/
 .DS_Store
 .vscode/
 .idea/
+
+# --- Private local notes (not part of the public repo) ---
+_notes/
