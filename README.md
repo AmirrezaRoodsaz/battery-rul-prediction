@@ -92,11 +92,19 @@ has produced the trained model:
 make app          # or: streamlit run app/streamlit_app.py
 ```
 
-This opens the app in your browser at `http://localhost:8501`. **How to use it:** pick a held-out
-cell from the dropdown — the app shows its **predicted vs actual cycle life**, the percentage error,
-and the cell's early-life ΔQ(V) curve (the signal the prediction is based on). Press `Ctrl+C` in the
-terminal to stop it. The demo is intentionally small; the substance of the project is the pipeline and
-analysis above.
+This opens the app in your browser at `http://localhost:8501`. It has two tabs:
+
+- **Dataset cell** — pick a held-out cell from the dropdown; the app shows its **predicted vs actual
+  cycle life**, the percentage error, and the cell's early-life ΔQ(V) curve.
+- **Upload your own CSV** — upload a cell's cycle-10 and cycle-100 discharge curves and the variance
+  model predicts its cycle life. The CSV has three columns — `voltage` (V), `q_cycle10` (Ah),
+  `q_cycle100` (Ah), one row per voltage point. A **Download example CSV** button gives you a
+  correctly-formatted file to start from, and the tab documents the format in full. Note: the curves
+  must come from **controlled single-cell lab cycling** (like the Severson cells); EV/OBD-II pack data
+  is a different kind of measurement and won't produce a meaningful prediction.
+
+Press `Ctrl+C` in the terminal to stop it. The demo is intentionally small; the substance of the
+project is the pipeline and analysis above.
 
 ## What I learned / limitations / next steps
 
