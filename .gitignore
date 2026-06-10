@@ -12,6 +12,9 @@ models/*
 # reports/figures/*
 # !reports/figures/.gitkeep
 
+# --- Regenerable report artifacts (final numbers live in reports/results.md) ---
+reports/*.parquet
+
 # --- Python ---
 __pycache__/
 *.py[cod]
