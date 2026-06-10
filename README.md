@@ -83,6 +83,21 @@ make eda          # launch the notebooks
 `make download` runs once (~8 GB); `make pipeline` reproduces all numbers and figures in ~1 minute
 on a laptop CPU. Everything is seeded.
 
+## Demo app (optional)
+
+A minimal [Streamlit](https://streamlit.io) web UI to try a single prediction. After `make pipeline`
+has produced the trained model:
+
+```bash
+make app          # or: streamlit run app/streamlit_app.py
+```
+
+This opens the app in your browser at `http://localhost:8501`. **How to use it:** pick a held-out
+cell from the dropdown — the app shows its **predicted vs actual cycle life**, the percentage error,
+and the cell's early-life ΔQ(V) curve (the signal the prediction is based on). Press `Ctrl+C` in the
+terminal to stop it. The demo is intentionally small; the substance of the project is the pipeline and
+analysis above.
+
 ## What I learned / limitations / next steps
 
 - **The validation protocol matters more than the model.** Respecting the dataset's train /
