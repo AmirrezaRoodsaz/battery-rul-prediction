@@ -23,3 +23,4 @@ ignore = ["E501"]  # line length handled by black
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+pythonpath = ["."]  # import `src` package without installing the project

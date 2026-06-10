@@ -28,8 +28,8 @@ REPORTS_DIR: Path = PROJECT_ROOT / "reports"
 FIGURES_DIR: Path = REPORTS_DIR / "figures"
 
 # --- Domain constants (Severson dataset) -------------------------------------------
-NOMINAL_CAPACITY_AH: float = 1.1          # A123 APR18650M1A nominal capacity
-EOL_FRACTION: float = 0.80                # End-of-Life = 80 % of nominal ...
+NOMINAL_CAPACITY_AH: float = 1.1  # A123 APR18650M1A nominal capacity
+EOL_FRACTION: float = 0.80  # End-of-Life = 80 % of nominal ...
 EOL_CAPACITY_AH: float = NOMINAL_CAPACITY_AH * EOL_FRACTION  # = 0.88 Ah
 
 # Cycles used for early-life feature extraction. The headline ΔQ(V) feature compares

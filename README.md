@@ -37,6 +37,9 @@ _Pending Phase 3._ Will report variance / discharge / full models × RMSE / MAE 
 
 ## Reproduce
 
+**Prerequisites:** Python 3.11. On macOS, XGBoost needs the OpenMP runtime: `brew install libomp`
+(the linear and tree-ensemble baselines run without it; only XGBoost requires it).
+
 ```bash
 make install     # create venv + install pinned deps (Python 3.11, CPU-only)
 make download     # fetch raw Severson batches (see data/README.md for license)
